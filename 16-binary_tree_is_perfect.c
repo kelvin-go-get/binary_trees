@@ -4,18 +4,19 @@
  * it has to be the same quantity of levels in left as right, and also
  * each node has to have 2 nodes or none
  * @tree: tree to check
- * Return: 0 if is not a perfect or other number that is the level of height
+ * Return: 0 if not a perfect or other number that is the level of height
  */
 int tree_is_perfect(const binary_tree_t *tree)
 {
-	int l = 0, r = 0;
+	int l_left = 0;
+	int r_right = 0;
 
 	if (tree->left && tree->right)
 	{
-		l = 1 + tree_is_perfect(tree->left);
-		r = 1 + tree_is_perfect(tree->right);
-		if (r == l && r != 0 && l != 0)
-			return (r);
+		l_left = 1 + tree_is_perfect(tree->left);
+		r_right = 1 + tree_is_perfect(tree->right);
+		if (r_right == l_left && r_right != 0 && l_left != 0)
+			return (r_right);
 		return (0);
 	}
 	else if (!tree->left && !tree->right)
