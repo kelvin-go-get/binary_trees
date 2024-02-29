@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 /**
- * bst_insert - insert nodes in order to create a BST tree
- * @tree: tree to create with type BST
+ * bst_insert - inserts a value in a BST tree
+ * @tree: double pointer to the root node of the BST tree
  * @value: value of node to insert
  * Return: BST tree
  */
@@ -10,10 +10,10 @@ bst_t *bst_insert(bst_t **tree, int value)
 	bst_t *new, *temp;
 	binary_tree_t *aux;
 
-	if (tree == NULL)
+	if (tree == NULL)/*checks if tree is empty*/
 		return (NULL);
 
-	if (*tree == NULL)
+	if (*tree == NULL)/*traverse the tree starting from the root node*/
 	{
 		aux = binary_tree_node((binary_tree_t *)(*tree), value);
 		new = (bst_t *)aux;
