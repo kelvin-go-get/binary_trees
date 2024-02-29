@@ -8,22 +8,16 @@
 bst_t *array_to_bst(int *array, size_t size)
 {
 	size_t i = 0;
-	bst_t *root;
+	bst_t *root = NULL;
 
 	if (array == NULL || size == 0)
 		return (NULL);
 
 	
-	for (; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
-		if (i == 0)
-		{
-			bst_insert(&root, array[i]);
-		}
-		else
-		{
-			bst_insert(&root, array[i]);
-		}
+		bst_insert(&root, array[i]);
 	}
+
 	return (root);
 }
